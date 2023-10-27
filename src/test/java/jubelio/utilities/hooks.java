@@ -21,7 +21,7 @@ public class hooks extends env {
 
     @After
     public void after () throws InterruptedException {
-        Thread.sleep(1000);
-        driver.quit();
+//        Thread.sleep(1000);
+//        driver.quit();
     }
 }

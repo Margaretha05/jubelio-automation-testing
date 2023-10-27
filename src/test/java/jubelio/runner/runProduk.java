@@ -6,8 +6,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/java/jubelio/features",
+        features = "src/test/java/jubelio/features/produk.feature",
         glue = {"jubelio.utilities", "jubelio.step_defenitions"},
-        plugin = {"html:target/HTML_report.html"}
+        plugin = {"html:target/login_report.html"}
 )
-public class runAllTests {}
+public class runProduk {}

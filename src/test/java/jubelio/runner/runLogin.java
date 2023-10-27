@@ -8,6 +8,6 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/java/jubelio/features/login.feature",
         glue = {"jubelio.utilities", "jubelio.step_defenitions"},
-        plugin = {"html:target/HTML_report.html", "json:target/JSON_report.json", "junit:target/XML_report.xml"}
+        plugin = {"html:target/login_report.html"}
 )
 public class runLogin {}
