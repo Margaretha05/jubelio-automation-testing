@@ -31,13 +31,14 @@ public class login extends env {
     }
 
     @And("click login button")
-    public void clickLoginButton() {
+    public void clickLoginButton() throws InterruptedException {
+        Thread.sleep(1000);
         driver.findElement(By.xpath("//button[@type='submit']")).click();
     }
 
     @Then("user in on dashboard page")
     public void userInOnDashboardPage() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(6000);
         String pageAssert = driver.findElement(By.tagName("h1")).getText();
         Assert.assertEquals("Dashboard", pageAssert);
     }
@@ -56,11 +57,11 @@ public class login extends env {
 
     @When("input invalid email format")
     public void inputInvalidEmailFormat() {
-        driver.findElement(By.xpath("//input[@name='email']")).sendKeys("qa.rakamin.jubelio@gmail..com");
+        driver.findElement(By.xpath("//input[@name='email']")).sendKeys("qa.rakamin.jubelio@@gmail...com");
     }
 
     @Then("Display an invalid email error message below the email input")
-    public void displayAnInvalidEmailErrorMessageBelowTheEmailInput() {
+    public void displayAnInvalidEmailErrorMessageBelowTheEmailInput()  {
         String belowEmailMessage = driver.findElement(By.xpath("//input[@name='email']/following-sibling::span[@class='help-block']")).getText();
         Assert.assertEquals("Format Email tidak valid.", belowEmailMessage);
     }
