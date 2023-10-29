@@ -14,4 +14,4 @@ Feature: Product Page
     And upload product image
     And input variasi barang
     And input other field
-    And click simpan button
+    Then click simpan button

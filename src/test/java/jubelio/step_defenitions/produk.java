@@ -2,10 +2,12 @@ package jubelio.step_defenitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import jubelio.config.env;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 
 public class produk extends env {
     @Given("in review page")
@@ -13,7 +15,7 @@ public class produk extends env {
         driver.findElement(By.xpath("//*[@id=\"wrapper\"]/nav/div/div/ul/li[2]/a")).click();
         driver.findElement(By.xpath("//*[@id=\"wrapper\"]/nav/div/div/ul/li[2]/ul/li[1]/a")).click();
         driver.findElement(By.xpath("//*[@id=\"wrapper\"]/nav/div/div/ul/li[2]/ul/li[1]/ul/li[1]/a")).click();
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         String titleAssert = driver.findElement(By.xpath("//*[@id=\"page-wrapper\"]/div[2]/div/div/div[1]/h1")).getText();
         Assert.assertEquals("In Review", titleAssert);
     }
@@ -64,15 +66,15 @@ public class produk extends env {
         driver.findElement(By.xpath("//*[@id=\"page-wrapper\"]/div[3]/div/div[3]/div[2]/div[5]/div/div/div[2]/div/div[2]/div[1]/div[1]/div[2]/div/div/div[1]/div/input")).sendKeys("3000000");
     }
 
-    @And("click simpan button")
-    public void clickSimpanButton() {
+    @Then(  "click simpan button")
+    public void clickSimpanButton() throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
         driver.findElement(By.xpath("//*[@id=\"page-wrapper\"]/div[3]/div/div[3]/div[4]/div[2]/button")).click();
     }
 
     @And("upload product image")
     public void uploadProductImage() {
-        driver.findElement(By.xpath("//*[@id=\"page-wrapper\"]/div[3]/div/div[3]/div[2]/div[2]/div[2]/div/div/input"))
-                .sendKeys("C:\\Users\\Public\\Documents\\Margaretta-Rakamin\\jubelio-testing\\src\\test\\java\\jubelio\\resources\\images\\image.png");
         driver.findElement(By.xpath("//*[@id=\"page-wrapper\"]/div[3]/div/div[3]/div[2]/div[2]/div[2]/div/div/input"))
                 .sendKeys("C:\\Users\\Public\\Documents\\Margaretta-Rakamin\\jubelio-testing\\src\\test\\java\\jubelio\\resources\\images\\image.png");
     }
